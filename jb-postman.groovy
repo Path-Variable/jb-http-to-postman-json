@@ -40,7 +40,7 @@ iff.eachLine {
             break
         case {l.contains(":") && !startedJson}:
             def sph = l.split(":")
-            def header = ["key":sph[0], "value" : sph[1], "type" : "text"]
+            def header = ["key":sph[0].trim(), "value" : sph[1].trim(), "type" : "text"]
             headers.add(header)
             break
 
