@@ -17,7 +17,6 @@ ks.each { k ->
     def v = jbEnv[k] as Map<String, String>
     v.keySet().each {
         valit -> {
-            println valit
             def val = [:]
             val["key"] = valit
             val["value"] = v[valit]

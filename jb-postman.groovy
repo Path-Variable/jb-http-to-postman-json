@@ -22,7 +22,6 @@ def info = ["name": "jb-export-$today",
             "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"]
 iff.eachLine {
     def l = it.strip()
-    println l.startsWith("# ")
     switch (l) {
         case l.startsWith("# "): break
         case {l ==~ "(GET|PUT|POST|DELETE|OPTIONS).+"}:
