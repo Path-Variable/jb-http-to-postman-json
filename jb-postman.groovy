@@ -29,7 +29,14 @@ iff.eachLine {
             req.put("method", l[0..3])
             def rawUrl = l.split(" ")[1]
             url.put("raw", rawUrl)
-            url.put("host",rawUrl.split("/")?[0]?.split("\\."))
+            if (rawUrl.contains("://")) {
+                def extUrl = rawUrl.split("://")
+                url.put("protocol", extUrl[0])
+                url.put("host", extUrl[1].split("/")?[0]?.split("\\."))
+            } else {
+                url.put("host",rawUrl.split("/")?[0]?.split("\\."))
+
+            }
             // assumption - there should be no url encoding going here since jb does it for you
             if (!rawUrl.contains("?")) break
             rawUrl.split("\\?")?[1].split("&")?.each {
