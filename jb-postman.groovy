@@ -32,7 +32,13 @@ iff.eachLine {
             if (rawUrl.contains("://")) {
                 def extUrl = rawUrl.split("://")
                 url.put("protocol", extUrl[0])
-                url.put("host", extUrl[1].split("/")?[0]?.split("\\."))
+                def cleanUrl = extUrl[1].split("\\?")[0] // remove query part
+                if (cleanUrl.contains("/")){ // if has path part
+                    url.put("host", cleanUrl.split("/")?[0]?.split("\\."))
+                    url.put("path", cleanUrl.split("/")?[1..-1])
+                } else {
+                    url.put("host", cleanUrl.split("\\."))
+                }
             } else {
                 url.put("host",rawUrl.split("/")?[0]?.split("\\."))
 
