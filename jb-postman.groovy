@@ -26,7 +26,7 @@ iff.eachLine {
         case l.startsWith("# "): break
         case {l ==~ "(GET|PUT|POST|DELETE|OPTIONS).+"}:
             item.put("name", "request-${++count}")
-            req.put("method", l[0..3])
+            req.put("method", l.split(" ")[0].trim())
             def rawUrl = l.split(" ")[1]
             url.put("raw", rawUrl)
             if (rawUrl.contains("://")) {
