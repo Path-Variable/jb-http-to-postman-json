@@ -78,6 +78,7 @@ iff.eachLine {
             }
             startedJson = false
             break
+        // assumption - each request ends with a line with the tripple hashatag, even the last one
         case {l.startsWith("###")}:
             items.add(item)
             item = [:]
