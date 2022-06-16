@@ -1,5 +1,5 @@
 The scripts were made with groovy version 3.0.9 JVM 16.0.1
-I have no idea about backwards compatiblity as I don't spend that much time coding groovy. (This is something I regret)
+I have no idea about backwards compatiblity as I don't spend that much time coding groovy.
 Please have installed at least that version or higher.
 
 There are two scripts in the repo:
